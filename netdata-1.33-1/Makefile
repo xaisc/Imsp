@@ -7,14 +7,14 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=netdata-1.33-1
+PKG_NAME:=netdata
 PKG_VERSION:=1.33.1
 PKG_RELEASE:=$(AUTORELEASE)
 
 PKG_MAINTAINER:=Josef Schlehofer <pepe.schlehofer@gmail.com>, Daniel Engberg <daniel.engberg.lists@pyret.net>
 PKG_LICENSE:=GPL-3.0-or-later
 PKG_LICENSE_FILES:=COPYING
-PKG_CPE_ID:=cpe:/a:my-netdata:netdata-1.33-1
+PKG_CPE_ID:=cpe:/a:my-netdata:netdata
 
 PKG_SOURCE:=$(PKG_NAME)-v$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=https://github.com/netdata/netdata/releases/download/v$(PKG_VERSION)
@@ -28,7 +28,7 @@ PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/netdata-1.33-1
+define Package/netdata
   SECTION:=admin
   CATEGORY:=Administration
   DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c
@@ -36,7 +36,7 @@ define Package/netdata-1.33-1
   URL:=https://www.netdata.cloud/
 endef
 
-define Package/netdata-1.33-1/description
+define Package/netdata/description
   netdata is a highly optimized Linux daemon providing real-time performance
   monitoring for Linux systems, applications and SNMP devices over the web.
 
@@ -72,11 +72,11 @@ define Build/Configure
 	$(Build/Configure/Default)
 endef
 
-define Package/netdatanetdata-1.33-1/conffiles
+define Package/netdatanetdata/conffiles
 /etc/netdata/
 endef
 
-define Package/netdatanetdata-1.33-1/install
+define Package/netdatanetdata/install
 	$(INSTALL_DIR) $(1)/etc/netdata/custom-plugins.d
 	$(CP) $(PKG_INSTALL_DIR)/etc/netdata $(1)/etc
 	$(CP) ./files/netdata.conf $(1)/etc/netdata
