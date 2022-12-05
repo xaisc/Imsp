@@ -7,7 +7,7 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=netdata
+PKG_NAME:=netdatacn
 PKG_VERSION:=1.33.1
 PKG_RELEASE:=$(AUTORELEASE)
 
@@ -28,7 +28,7 @@ PKG_USE_MIPS16:=0
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/netdata
+define Package/netdatacn
   SECTION:=admin
   CATEGORY:=Administration
   DEPENDS:=+zlib +libuuid +libuv +libmnl +libjson-c
@@ -36,7 +36,7 @@ define Package/netdata
   URL:=https://www.netdata.cloud/
 endef
 
-define Package/netdata/description
+define Package/netdatacn/description
   netdata is a highly optimized Linux daemon providing real-time performance
   monitoring for Linux systems, applications and SNMP devices over the web.
 
@@ -72,11 +72,11 @@ define Build/Configure
 	$(Build/Configure/Default)
 endef
 
-define Package/netdatanetdata/conffiles
+define Package/netdatacn/conffiles
 /etc/netdata/
 endef
 
-define Package/netdatanetdata/install
+define Package/netdatacn/install
 	$(INSTALL_DIR) $(1)/etc/netdata/custom-plugins.d
 	$(CP) $(PKG_INSTALL_DIR)/etc/netdata $(1)/etc
 	$(CP) ./files/netdata.conf $(1)/etc/netdata
@@ -102,4 +102,4 @@ define Package/netdatanetdata/install
 	$(INSTALL_BIN) ./files/netdata.init $(1)/etc/init.d/netdata
 endef
 
-$(eval $(call BuildPackage,netdata))
+$(eval $(call BuildPackage,netdatacn))
