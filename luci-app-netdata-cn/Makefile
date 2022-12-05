@@ -6,7 +6,7 @@
 include $(TOPDIR)/rules.mk
 
 LUCI_TITLE:=LuCI support for Netdata
-LUCI_DEPENDS:=+netdata
+LUCI_DEPENDS:=+netdata-1.33-1
 LUCI_PKGARCH:=all
 
 PKG_NAME:=luci-app-netdata-cn
